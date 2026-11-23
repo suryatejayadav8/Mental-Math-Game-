@@ -1,38 +1,42 @@
 # ===================================================================
-# Mental Math Game – .gitignore
+# Mental Math Game – Root .gitignore
 # ===================================================================
 
-# Java & Maven Build Artifacts
-target/
-*.class
-*.jar
-*.war
-*.ear
-
-# Frontend Dependencies & Production Bundles
-frontend/node_modules/
-node_modules/
-frontend/dist/
-dist/
-.npm/
-.vite/
-frontend/.vite/
-
-# Environment Variables & Sensitive Credentials
+# 1. Environment Variables & Sensitive Credentials
+# Exclude all .env and .env.* files, but explicitly allow .env.example files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 frontend/.env
-frontend/.env.local
-frontend/.env.*.local
+frontend/.env.*
+!frontend/.env.example
+**/.env
+**/.env.*
+!**/.env.example
 *.env
 *.pem
 *.key
 credentials.json
 
-# IDE & Editor Configurations
+# 2. Build Output & Compiled Binaries
+target/
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# 3. Frontend Dependencies, Caches & Production Bundles
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+frontend/dist/
+.vite/
+**/.vite/
+.npm/
+
+# 4. IDE & Editor Configuration Files
 .idea/
 *.iml
 .vscode/
@@ -41,25 +45,29 @@ credentials.json
 *.njsproj
 *.sln
 *.sw?
+*.swo
+*.swp
 .classpath
 .project
 .settings/
 *.launch
 
-# OS Generated Files
+# 5. Operating System Temporary Files
 .DS_Store
 Thumbs.db
 desktop.ini
 $RECYCLE.BIN/
+*.tmp
+*~
 
-# Log Files & Crash Reports
+# 6. Log Files & Crash Reports
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Temporary files
+# 7. Local Scratch / Temp Folders
 scratch/
 tmp/
 temp/
